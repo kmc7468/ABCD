@@ -14,7 +14,8 @@ namespace abcd
 	class DirectoryElement
 	{
 	public:
-		DirectoryElement() = default;
+		DirectoryElement(const std::string& name);
+		DirectoryElement(const std::string& name, DirectoryElement* const parent);
 		DirectoryElement(const DirectoryElement& directory_element) = delete;
 		DirectoryElement(DirectoryElement&& directory_element) noexcept = delete;
 		virtual ~DirectoryElement() = default;
