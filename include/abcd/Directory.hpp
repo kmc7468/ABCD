@@ -1,6 +1,8 @@
 #ifndef ABCD_HEADER_DIRECTORY_HPP
 #define ABCD_HEADER_DIRECTORY_HPP
 
+#include <vector>
+
 #include <abcd/DirectoryElement.hpp>
 
 namespace abcd
@@ -11,7 +13,7 @@ namespace abcd
 		Directory(const std::string& name, DirectoryElement* const parent);
 		Directory(const Directory& directory) = delete;
 		Directory(Directory&& directory) noexcept = delete;
-		virtual ~Directory() override = default;
+		virtual ~Directory() override;
 
 	public:
 		Directory & operator=(const Directory& directory) = delete;
@@ -21,6 +23,13 @@ namespace abcd
 
 	public:
 		virtual DirectoryElementType Type() const noexcept override;
+
+	public:
+		DirectoryElement* CreateFile(const std::string& name, const std::string& extenstion);
+		DirectoryElement* CreateDirectory(const std::string& name);
+
+	private:
+		std::vector<DirectoryElement*> elements_;
 	};
 }
 
