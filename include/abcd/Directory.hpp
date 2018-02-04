@@ -16,7 +16,7 @@ namespace abcd
 		virtual ~Directory() override;
 
 	public:
-		Directory & operator=(const Directory& directory) = delete;
+		Directory& operator=(const Directory& directory) = delete;
 		Directory& operator=(Directory&& directory) noexcept = delete;
 		bool operator==(const Directory& directory) const = delete;
 		bool operator!=(const Directory& directory) const = delete;
@@ -27,7 +27,7 @@ namespace abcd
 	public:
 		DirectoryElement* CreateFile(const std::string& name, const std::string& extenstion);
 		DirectoryElement* CreateDirectory(const std::string& name);
-		void RegisterElement(DirectoryElement* directory_element);
+		void RegisterElement(DirectoryElement* const directory_element);
 		void UnregisterElement(DirectoryElement* const directory_element);
 
 	public:

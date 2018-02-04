@@ -1,7 +1,10 @@
 #ifndef ABCD_HEADER_FILE_HPP
 #define ABCD_HEADER_FILE_HPP
 
+#include <vector>
+
 #include <abcd/DirectoryElement.hpp>
+#include <abcd/Node.hpp>
 
 namespace abcd
 {
@@ -24,9 +27,13 @@ namespace abcd
 	
 	public:
 		std::string Extenstion() const;
+		const std::vector<Node*>& Nodes() const noexcept;
+		void RegisterNode(Node* const node);
+		void UnregisterNode(Node* const node);
 
 	private:
 		std::string Extenstion_;
+		std::vector<Node*> Nodes_;
 	};
 }
 

@@ -37,7 +37,7 @@ namespace abcd
 		Elements_.push_back(directory);
 		return directory;
 	}
-	void Directory::RegisterElement(DirectoryElement* directory_element)
+	void Directory::RegisterElement(DirectoryElement* const directory_element)
 	{
 		if (directory_element == nullptr)
 			throw std::invalid_argument("'directory_element' can't be nullptr.");
