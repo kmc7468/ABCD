@@ -27,9 +27,14 @@ namespace abcd
 	public:
 		DirectoryElement* CreateFile(const std::string& name, const std::string& extenstion);
 		DirectoryElement* CreateDirectory(const std::string& name);
+		void RegisterElement(DirectoryElement* directory_element);
+		void UnregisterElement(DirectoryElement* const directory_element);
+
+	public:
+		const std::vector<DirectoryElement*>& Elements() const noexcept;
 
 	private:
-		std::vector<DirectoryElement*> elements_;
+		std::vector<DirectoryElement*> Elements_;
 	};
 }
 
