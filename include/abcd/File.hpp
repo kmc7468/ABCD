@@ -32,12 +32,12 @@ namespace abcd
 	public:
 		std::string Extenstion() const;
 		const std::vector<Node*>& Nodes() const noexcept;
-		bool IsEdited() const noexcept;
+		bool IsModified() const noexcept;
 
 	private:
 		std::string Extenstion_;
 		std::vector<Node*> Nodes_;
-		bool IsEdited_ = true;
+		bool IsModified_ = true;
 	};
 }
 

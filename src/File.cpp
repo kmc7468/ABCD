@@ -20,7 +20,7 @@ namespace abcd
 			throw std::invalid_argument("'node' can't be nullptr.");
 
 		Nodes_.push_back(node);
-		IsEdited_ = true;
+		IsModified_ = true;
 	}
 	void File::UnregisterNode(Node* const node)
 	{
@@ -32,7 +32,7 @@ namespace abcd
 		if (iterator != Nodes_.end())
 		{
 			Nodes_.erase(iterator);
-			IsEdited_ = true;
+			IsModified_ = true;
 		}
 		else
 			throw std::invalid_argument("Failed to find 'node'.");
@@ -46,8 +46,8 @@ namespace abcd
 	{
 		return Nodes_;
 	}
-	bool File::IsEdited() const noexcept
+	bool File::IsModified() const noexcept
 	{
-		return IsEdited_;
+		return IsModified_;
 	}
 }
