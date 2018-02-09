@@ -24,16 +24,20 @@ namespace abcd
 		
 	public:
 		virtual DirectoryElementType Type() const noexcept override;
+
+	public:
+		void RegisterNode(Node* const node);
+		void UnregisterNode(Node* const node);
 	
 	public:
 		std::string Extenstion() const;
 		const std::vector<Node*>& Nodes() const noexcept;
-		void RegisterNode(Node* const node);
-		void UnregisterNode(Node* const node);
+		bool IsEdited() const noexcept;
 
 	private:
 		std::string Extenstion_;
 		std::vector<Node*> Nodes_;
+		bool IsEdited_ = true;
 	};
 }
 

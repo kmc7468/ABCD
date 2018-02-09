@@ -14,20 +14,13 @@ namespace abcd
 		return DirectoryElementType::File;
 	}
 
-	std::string File::Extenstion() const
-	{
-		return Extenstion_;
-	}
-	const std::vector<Node*>& File::Nodes() const noexcept
-	{
-		return Nodes_;
-	}
 	void File::RegisterNode(Node* const node)
 	{
 		if (node == nullptr)
 			throw std::invalid_argument("'node' can't be nullptr.");
 
 		Nodes_.push_back(node);
+		IsEdited_ = true;
 	}
 	void File::UnregisterNode(Node* const node)
 	{
@@ -39,8 +32,22 @@ namespace abcd
 		if (iterator != Nodes_.end())
 		{
 			Nodes_.erase(iterator);
+			IsEdited_ = true;
 		}
 		else
 			throw std::invalid_argument("Failed to find 'node'.");
+	}
+
+	std::string File::Extenstion() const
+	{
+		return Extenstion_;
+	}
+	const std::vector<Node*>& File::Nodes() const noexcept
+	{
+		return Nodes_;
+	}
+	bool File::IsEdited() const noexcept
+	{
+		return IsEdited_;
 	}
 }
