@@ -26,7 +26,7 @@ namespace abcd
 	public:
 		virtual std::string GenerateTree(std::size_t depth) const = 0;
 		virtual void Preprocess() = 0;
-		virtual Code GenerateCCode() const = 0;
+		virtual Code GenerateCode() const = 0;
 
 	protected:
 		std::string TreeDepth(std::size_t depth) const;
