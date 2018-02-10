@@ -22,6 +22,17 @@ namespace abcd
 	{
 		return DirectoryElementType::Directory;
 	}
+	std::string Directory::Path() const
+	{
+		if (Parent())
+		{
+			return Parent()->Path() + '/' + Name();
+		}
+		else
+		{
+			return Name();
+		}
+	}
 
 	DirectoryElement* Directory::CreateFile(const std::string& name, const std::string& extenstion)
 	{

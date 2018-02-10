@@ -28,6 +28,7 @@ namespace abcd
 
 	public:
 		virtual DirectoryElementType Type() const noexcept = 0;
+		virtual std::string Path() const = 0;
 
 	public:
 		bool IsFile() const noexcept;

@@ -13,6 +13,22 @@ namespace abcd
 	{
 		return DirectoryElementType::File;
 	}
+	std::string File::Path() const
+	{
+		std::string result;
+
+		if (Parent())
+		{
+			result = Parent()->Path();
+		}
+
+		result += Name();
+
+		if (!Extenstion_.empty())
+		{
+			result += '.' + Extenstion_;
+		}
+	}
 
 	void File::RegisterNode(Node* const node)
 	{

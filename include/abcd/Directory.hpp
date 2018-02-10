@@ -23,6 +23,7 @@ namespace abcd
 
 	public:
 		virtual DirectoryElementType Type() const noexcept override;
+		virtual std::string Path() const override;
 
 	public:
 		DirectoryElement* CreateFile(const std::string& name, const std::string& extenstion);
@@ -52,7 +53,9 @@ namespace abcd
 		bool operator!=(const RootDirectory& directory) const = delete;
 
 	public:
-		std::string Path() const;
+		virtual std::string Path() const override;
+
+	public:
 		void Path(const std::string& new_path);
 
 	private:
