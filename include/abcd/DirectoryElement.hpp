@@ -37,7 +37,9 @@ namespace abcd
 
 	public:
 		std::string Name() const;
+		void Name(const std::string& new_name);
 		DirectoryElement* Parent() const noexcept;
+		void Parent(DirectoryElement* const new_parent) noexcept;
 
 	private:
 		DirectoryElement* Parent_ = nullptr;

@@ -92,7 +92,7 @@ namespace abcd
 
 	std::string RootDirectory::Path() const
 	{
-		return Path_;
+		return Path_ + '/' + Name();
 	}
 
 	void RootDirectory::Path(const std::string& new_path)

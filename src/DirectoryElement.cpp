@@ -22,8 +22,16 @@ namespace abcd
 	{
 		return Name_;
 	}
+	void DirectoryElement::Name(const std::string& new_name)
+	{
+		Name_ = new_name;
+	}
 	DirectoryElement* DirectoryElement::Parent() const noexcept
 	{
 		return Parent_;
+	}
+	void DirectoryElement::Parent(DirectoryElement* const new_parent) noexcept
+	{
+		Parent_ = new_parent;
 	}
 }
