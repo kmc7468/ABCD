@@ -10,7 +10,7 @@ namespace abcd
 	class Type
 	{
 	public:
-		Type(const std::string& name);
+		Type() = default;
 		Type(const Type& type) = delete;
 		Type(Type&& type) noexcept = delete;
 		virtual ~Type() = default;
@@ -31,12 +31,6 @@ namespace abcd
 
 	protected:
 		std::string TreeDepth(std::size_t depth) const;
-
-	public:
-		std::string Name() const;
-
-	private:
-		std::string Name_;
 	};
 }
 
