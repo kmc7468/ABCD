@@ -33,6 +33,13 @@ namespace abcd
 			return Name();
 		}
 	}
+	void Directory::Save() const
+	{
+		for (DirectoryElement* element : Elements_)
+		{
+			element->Save();
+		}
+	}
 
 	DirectoryElement* Directory::CreateFile(const std::string& name, const std::string& extenstion)
 	{
@@ -87,6 +94,7 @@ namespace abcd
 	{
 		return Path_;
 	}
+
 	void RootDirectory::Path(const std::string& new_path)
 	{
 		Path_ = new_path;

@@ -25,6 +25,7 @@ namespace abcd
 	public:
 		virtual DirectoryElementType Type() const noexcept override;
 		virtual std::string Path() const override;
+		virtual void Save() const override;
 
 	public:
 		void RegisterNode(Node* const node);

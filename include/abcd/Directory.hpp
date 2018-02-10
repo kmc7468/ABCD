@@ -24,6 +24,7 @@ namespace abcd
 	public:
 		virtual DirectoryElementType Type() const noexcept override;
 		virtual std::string Path() const override;
+		virtual void Save() const override;
 
 	public:
 		DirectoryElement* CreateFile(const std::string& name, const std::string& extenstion);

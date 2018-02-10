@@ -1,6 +1,8 @@
 #include <abcd/File.hpp>
 
 #include <algorithm>
+#include <filesystem>
+#include <fstream>
 #include <stdexcept>
 
 namespace abcd
@@ -27,6 +29,31 @@ namespace abcd
 		if (!Extenstion_.empty())
 		{
 			result += '.' + Extenstion_;
+		}
+
+		return result;
+	}
+	void File::Save() const
+	{
+		std::ofstream stream(Path());
+
+		if (!stream.is_open())
+			throw std::experimental::filesystem::filesystem_error("Failed to open file.",
+				std::make_error_code(std::errc::io_error));
+
+		Code codes;
+		Code temp;
+
+		for (Node* node : Nodes_)
+		{
+			temp = node->GenerateCode();
+
+			codes.insert(codes.end(), temp.begin(), temp.end());
+		}
+
+		for (std::string code : codes)
+		{
+			stream << code << std::endl;
 		}
 	}
 
