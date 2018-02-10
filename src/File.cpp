@@ -42,18 +42,15 @@ namespace abcd
 				std::make_error_code(std::errc::io_error));
 
 		Code codes;
-		Code temp;
 
 		for (Node* node : Nodes_)
 		{
-			temp = node->GenerateCode();
+			codes = node->GenerateCode();
 
-			codes.insert(codes.end(), temp.begin(), temp.end());
-		}
-
-		for (std::string code : codes)
-		{
-			stream << code << std::endl;
+			for (std::string code : codes)
+			{
+				stream << code << std::endl;
+			}
 		}
 	}
 
