@@ -7,7 +7,7 @@
 
 namespace abcd
 {
-	class Directory final : public DirectoryElement
+	class Directory : public DirectoryElement
 	{
 	public:
 		Directory(const std::string& name, DirectoryElement* const parent);
@@ -35,6 +35,28 @@ namespace abcd
 
 	private:
 		std::vector<DirectoryElement*> Elements_;
+	};
+
+	class RootDirectory final : public Directory
+	{
+	public:
+		RootDirectory(const std::string& path, const std::string& name);
+		RootDirectory(const RootDirectory& directory) = delete;
+		RootDirectory(RootDirectory&& directory) noexcept = delete;
+		virtual ~RootDirectory() override = default;
+
+	public:
+		RootDirectory& operator=(const RootDirectory& directory) = delete;
+		RootDirectory& operator=(RootDirectory&& directory) noexcept = delete;
+		bool operator==(const RootDirectory& directory) const = delete;
+		bool operator!=(const RootDirectory& directory) const = delete;
+
+	public:
+		std::string Path() const;
+		void Path(const std::string& new_path);
+
+	private:
+		std::string Path_;
 	};
 }
 

@@ -67,4 +67,17 @@ namespace abcd
 	{
 		return Elements_;
 	}
+
+	RootDirectory::RootDirectory(const std::string& path, const std::string& name)
+		: Directory(name, nullptr), Path_(path)
+	{}
+
+	std::string RootDirectory::Path() const
+	{
+		return Path_;
+	}
+	void RootDirectory::Path(const std::string& new_path)
+	{
+		Path_ = new_path;
+	}
 }
